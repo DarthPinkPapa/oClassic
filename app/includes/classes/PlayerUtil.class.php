@@ -581,7 +581,13 @@ class PlayerUtil
 		{
 			$planetPerBonus = 999;
 		}
-		
+
+		//PAL#5 Colonization Bug
+		if ($planetPerTech == 0)
+			{
+				$planetPerTech = 999;
+			}		
+
 		// http://owiki.de/index.php/Astrophysik#.C3.9Cbersicht
 		return (int) ceil($config->min_player_planets + min($planetPerTech, $USER[$resource[124]] * $config->planets_per_tech) + min($planetPerBonus, $USER['factor']['Planets']));
 	}

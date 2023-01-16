@@ -1,12 +1,15 @@
 ### oClassic v1.8.1 01/23
-- DPP#1 Refactor Repo, Docker-Compose
-  Refactor the GIT repo to optimize for the use of Docker compose for local development and final deployment.
-- DPP#2 Daily Reward
-  Daily reward on the Officers page to be able to receive up to 500 DM every 24 hours.
-- DPP#3 Research in Overview
-  The overview shows what is currently being researched.
-- DPP#4 Change Style to more Classic look (Buildings)
-  oClassic should look more like the classic oGame before the redesign.
+- DPP#1 Refactor Repo, Docker-Compose - Refactor the GIT repo to optimize for the use of Docker compose for local development and final deployment.Reward
+- DPP#2 Daily Reward - Daily reward on the Officers page to be able to receive up to 500 DM every 24 hours.
+- DPP#3 Research in Overview - The overview shows what is currently being researched.
+- DPP#4 Change Style to more Classic look (Buildings) - oClassic should look more like the classic oGame before the redesign.
+- DPP#5 Colonization Bug - Although a player has researched Astrophysics 5, he cannot found another colony.
+- DPP#7 Planet Count in Overview - The Overview should display the amount of plantes that can be colonized.
+- DPP#8 Change left menu to more Classic look - oClassic should look more like the classic oGame before the redesign.
+- DPP#9 Change Style to more Classic look (Research) - oClassic should look more like the classic oGame before the redesign.
+- DPP#10 Change Style to more Classic look (Shipyard) - oClassic should look more like the classic oGame before the redesign.
+- DPP#11 Change Style to more Classic look (Officer) - oClassic should look more like the classic oGame before the redesign.
+- DPP#13 Remove Ships that are not in oGame - oClassic should only have ships, that are in the original oGame.
 
 ### v1.8.0	Jan
 - See: [https://github.com/jkroepke/2Moons/pulls](https://github.com/jkroepke/2Moons/pulls?utf8=%E2%9C%93&q=is%3Aclosed)

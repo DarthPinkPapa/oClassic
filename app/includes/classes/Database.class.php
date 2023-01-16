@@ -100,7 +100,7 @@ class Database
 		$this->rowCount = false;
 		
 		$qry	= str_replace($this->dbTableNames['keys'], $this->dbTableNames['names'], $qry);
-
+				
 		/** @var $stmt PDOStatement */
 		$stmt	= $this->dbHandle->prepare($qry);
 
@@ -118,6 +118,9 @@ class Database
 				}
 			}
 		}
+
+		//PAL#6 Error in Galaxy View		
+		//$myfile = file_put_contents('quers_logs.txt', $qry.PHP_EOL , FILE_APPEND | LOCK_EX);
 
 		try {
 			$success = (count($params) !== 0 && !isset($params[':limit']) && !isset($params[':offset'])) ? $stmt->execute($params) : $stmt->execute();

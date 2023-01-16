@@ -49,23 +49,34 @@
 <table style="width:760px">
 	{foreach $ResearchList as $ID => $Element}
 	<tr>
-		<td rowspan="2" style="width:120px;">
-			<a href="#" onclick="return Dialog.info({$ID})">
-				<img src="{$dpath}gebaeude/{$ID}.gif" alt="" class="top" width="120" height="120">
-			</a>
-		</td>
-		<th>
-			<a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level != 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
+		<th colspan="2">
+			<span style="color:yellow"><a href="#" style="color:yellow"  onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level != 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if} </span>
 		</th>
+	</tr>
+
+	<tr>
+		<td rowspan="2" style="width:120px;">
+			<a href="#" onclick="return Dialog.info({$ID})"><img src="{$dpath}gebaeude/{$ID}.gif" alt="" class="top" width="120" height="120"></a>
+		</td>
+		
 	</tr>
 	<tr>
 		<td>
 			<table style="width:100%">
 				<tr>
-					<td class="transparent left" style="width:90%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p>
-					<p>{foreach $Element.costResources as $RessID => $RessAmount}
+					<td class="transparent left" style="width:90%"><p>{$LNG.shortDescription.{$ID}}</p>
+					{foreach $Element.costResources as $RessID => $RessAmount}
 					{$LNG.tech.{$RessID}}: <b><span style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
-					{/foreach}</p></td>
+					{/foreach}
+					{$LNG.fgf_time}: {$Element.elementTime|time}
+					
+					<p>{$LNG.bd_remaining}
+						{foreach $Element.costOverflow as $ResType => $ResCount}
+						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span>
+						{/foreach}
+					</p>
+
+				    </td>
 					<td class="transparent" style="vertical-align:middle;width:100px">
 					{if $Element.maxLevel == $Element.levelToBuild}
 						<span style="color:red">{$LNG.bd_maxlevel}</span>
@@ -83,32 +94,7 @@
 			</table>
 		</td>
 	</tr>
-	<tr>
-		<td colspan="2" style="margin-bottom:10px;">  
-			<table style="width:100%">
-				<tr>
-					<td class="transparent left">
-						{$LNG.bd_remaining}<br>
-						{foreach $Element.costOverflow as $ResType => $ResCount}
-						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>
-						{/foreach}
-						<br>
-					</td>
-					<td class="transparent right">
-						{$LNG.fgf_time}
-					</td>
-				</tr>
-				<tr>		
-					<td class="transparent left" style="width:68%">
-						&nbsp;
-					</td>
-					<td class="transparent right" style="white-space:nowrap;">
-						{$Element.elementTime|time}
-					</td>
-				</tr>	
-			</table>
-		</td>
-	</tr>
+	
 	{/foreach}
 </table>
 {/block}

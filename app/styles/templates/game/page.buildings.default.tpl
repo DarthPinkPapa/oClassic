@@ -43,23 +43,28 @@
 <table style="width:760px">
 	{foreach $BuildInfoList as $ID => $Element}
 	<tr>
+		<th colspan="3">
+			<span style="color:yellow"><a href="#" style="color:yellow" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if} </span>
+		</th>
+	</tr>
+
+	<tr>
 		<td rowspan="2" style="width:120px;">
 			<a href="#" onclick="return Dialog.info({$ID})">
 				<img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" width="120" height="120">
 			</a>
-		</td>
-		<th>
-			<a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
-		</th>
+		</td>		
 	</tr>
 	<tr>
 		<td>
 			<table style="width:100%">
 				<tr>
-					<td class="transparent left" style="width:90%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p>
-					<p>{foreach $Element.costResources as $RessID => $RessAmount}
+					<td class="transparent left" style="width:90%;"><p>{$LNG.shortDescription.{$ID}}</p>
+					{foreach $Element.costResources as $RessID => $RessAmount}
 					{$LNG.tech.{$RessID}}: <b><span style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
-					{/foreach}</p></td>				
+					{/foreach}		
+					{$LNG.fgf_time}: {$Element.elementTime|time}							
+					</td>				
 					<td class="transparent" style="vertical-align:middle;width:100px">
 					{if $Element.maxLevel == $Element.levelToBuild}
 						<span style="color:red">{$LNG.bd_maxlevel}</span>
@@ -79,28 +84,25 @@
 						{else}
 						<span style="color:red">{$LNG.bd_no_more_fields}</span>
 						{/if}
-					{/if}
+					{/if}						
 					</td>
 				</tr>
-			</table>
-
-
-			<table style="width:100%">
+			
 				<tr>
-					<td class="transparent left">
-						{$LNG.bd_remaining}<br>
+					<td class="transparent left" style="width:90%;">
+						{$LNG.bd_remaining}
 						{foreach $Element.costOverflow as $ResType => $ResCount}
-						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>
+						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span>
 						{/foreach}
-						<br>
+						<br>												
 					</td>
 				</tr>
 				<tr>		
-					<td class="transparent left" style="width:68%">
+					<td class="transparent left" style="width:90%;">
 						{if !empty($Element.infoEnergy)}
-							{$LNG.bd_next_level}<br>
-							{$Element.infoEnergy}<br>
-						{/if}
+							{$LNG.bd_next_level}
+							{$Element.infoEnergy}<br>							
+						{/if}						
 						{if $Element.level > 0}
 							{if $ID == 43}<a href="#" onclick="return Dialog.info({$ID})">{$LNG.bd_jump_gate_action}</a>{/if}
 							{if ($ID == 44 && !$HaveMissiles) ||  $ID != 44}<br><a class="tooltip_sticky" data-tooltip-content="
@@ -133,11 +135,8 @@
 								">{$LNG.bd_dismantle}</a>{/if}
 						{else}
 							&nbsp;
-						{/if}
-					</td>
-					<td class="transparent right" style="white-space:nowrap;">
-						{$LNG.fgf_time}:<br>{$Element.elementTime|time}
-					</td>
+						{/if}						
+					</td>				
 				</tr>	
 			</table>
 		</td>

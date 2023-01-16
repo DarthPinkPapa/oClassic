@@ -262,6 +262,14 @@ class ShowOverviewPage extends AbstractGamePage
 			$rankInfo	= sprintf($LNG['ov_userrank_info'], pretty_number($statData['total_points']), $LNG['ov_place'],
 				$statData['total_rank'], $statData['total_rank'], $LNG['ov_of'], $config->users_amount);
 		}
+
+		//PAL#7 Planet Count in Overview
+		$sql	= 'SELECT * FROM %%USERS%% WHERE `id` = :userId;';
+		$senderUser		= $db->selectSingle($sql, array(
+			':userId'	=> $USER['id'],
+		));		
+		$senderUser['factor']	= getFactors($senderUser, 'basic');
+		$planetsMax = PlayerUtil::maxPlanetCount($senderUser);
 		
 		$this->assign(array(
 			'rankInfo'					=> $rankInfo,
@@ -286,12 +294,14 @@ class ShowOverviewPage extends AbstractGamePage
 			'planet_field_current' 		=> $PLANET['field_current'],
 			'planet_field_max' 			=> CalculateMaxPlanetFields($PLANET),
 			'planet_temp_min' 			=> $PLANET['temp_min'],
-			'planet_temp_max' 			=> $PLANET['temp_max'],
+			'planet_temp_max' 			=> $PLANET['temp_max'],			
 			'ref_active'				=> $config->ref_active,
 			'ref_minpoints'				=> $config->ref_minpoints,
 			'RefLinks'					=> $RefLinks,
 			'chatOnline'				=> $chatOnline,
 			'research'                  => $this->getResearchData(),
+			'planetsMaxAllowed'		    => $planetsMax,
+			'planetsCount'		    	=> count($AllPlanets) + 1, 						
 			'servertime'				=> _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
 			'path'						=> HTTP_PATH,
 		));

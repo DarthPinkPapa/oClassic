@@ -74,4 +74,3 @@ composer.phar
 app/includes/backups
 mysql
 app/includes/error.log
-app/includes/config.php

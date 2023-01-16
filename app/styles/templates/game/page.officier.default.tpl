@@ -7,15 +7,17 @@
 	</tr>
 	{foreach $darkmatterList as $ID => $Element}
 	<tr>
+		<th colspan="3">
+			<span style="color:yellow"><a href="#" style="color:yellow"onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a></span>
+		</th>
+	</tr>
+	<tr>
 		<td rowspan="2" style="width:120px;">
 			<a href="#" onclick="return Dialog.info({$ID});">
 				<img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" width="120" height="120">
 			</a>
-		</td>
-		<th>
-			<a href="#" onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a>
-		</th>
-	</tr>
+		</td>		
+	</tr>		
 	<tr>
 		<td>
 			<table style="width:100%">
@@ -62,14 +64,18 @@
 	</tr>
 	{foreach $officierList as $ID => $Element}
 	<tr>
+		<th colspan="3">
+			<span style="color:yellow"><a href="#" style="color:yellow"  onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a> ({$LNG.of_lvl} {$Element.level}/{$Element.maxLevel})</span>
+		</th>
+	</tr>
+
+	<tr>
 		<td rowspan="2" style="width:120px;">
 			<a href="#" onclick="return Dialog.info({$ID})">
 				<img src="{$dpath}gebaeude/{$ID}.jpg" alt="{$LNG.tech.{$ID}}" width="120" height="120">
 			</a>
 		</td>
-		<th>
-			<a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a> ({$LNG.of_lvl} {$Element.level}/{$Element.maxLevel})
-		</th>
+		
 	</tr>
 	<tr>
 		<td>
