@@ -7,7 +7,7 @@
 		</tr>
 		<tr>
 			<td style="width:100px">{$LNG.lv_planet}</td>
-			<td style="width:100px;font-size: 50px;">&Sigma;</td>
+			<td style="width:100px;font-size: 50px;">&Sigma; (Ø)</td>
 			{foreach $planetList.image as $planetID => $image}
 			<td style="width:100px"><a href="game.php?page=overview&amp;cp={$planetID}"><img width="80" height="80" border="0" src="{$dpath}planeten/small/s_{$image}.jpg"></a></td>
 			{/foreach}
@@ -51,9 +51,14 @@
 		{foreach $planetList.build as $elementID => $buildArray}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($buildArray)|number}</td>
-			{foreach $buildArray as $planetID => $build}
-				<td>{$build|number}</td>
+			<td>{array_sum($buildArray)|number} ({floor(array_sum($buildArray)/count($buildArray))|number})</td>
+			{foreach $buildArray as $planetID => $build}			
+				<td>
+				{if	$build +2 < floor(array_sum($buildArray)/count($buildArray))  }<span style="color:red">{$build|number}</span>
+				{elseif $build  < floor(array_sum($buildArray)/count($buildArray))  } <span style="color:yellow">{$build|number}</span>		
+				{else} <span style="color:green">{$build|number}</span>		
+				{/if}	
+				</td>
 			{/foreach}
 		</tr>
 		{/foreach}
@@ -75,21 +80,32 @@
 		{foreach $planetList.fleet as $elementID => $fleetArray}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($fleetArray)|number}</td>
+			<td>{array_sum($fleetArray)|number} ({floor(array_sum($fleetArray)/count($fleetArray))|number})</td>
 			{foreach $fleetArray as $planetID => $fleet}
-				<td>{$fleet|number}</td>
+				<td>								
+					{if	$fleet +2 < floor(array_sum($fleetArray)/count($fleetArray))  }<span style="color:red">{$fleet|number}</span>
+					{elseif $fleet  < floor(array_sum($fleetArray)/count($fleetArray))  } <span style="color:yellow">{$fleet|number}</span>		
+					{else} <span style="color:green">{$fleet|number}</span>		
+					{/if}									
+				</td>
 			{/foreach}
 		</tr>
 		{/foreach}
+
 		<tr>
 			<th colspan="{$colspan}">{$LNG.lv_defenses}</th>
 		</tr>
 		{foreach $planetList.defense as $elementID => $fleetArray}
-		<tr>
+		<tr>			
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($fleetArray)|number}</td>
+			<td>{array_sum($fleetArray)|number} ({floor(array_sum($fleetArray)/count($fleetArray))|number})</td>
 			{foreach $fleetArray as $planetID => $fleet}
-				<td>{$fleet|number}</td>
+				<td>			
+					{if	$fleet +2 < floor(array_sum($fleetArray)/count($fleetArray))  }<span style="color:red">{$fleet|number}</span>
+					{elseif $fleet  < floor(array_sum($fleetArray)/count($fleetArray))  } <span style="color:yellow">{$fleet|number}</span>		
+					{else} <span style="color:green">{$fleet|number}</span>		
+					{/if}	
+				</td>
 			{/foreach}
 		</tr>
 		{/foreach}

@@ -21,8 +21,8 @@
 	</tr>
 	{/if}
 	<tr>
-		<td style="white-space: nowrap;">{$LNG.ov_admins_online}</td>
-		<td colspan="2">{foreach $AdminsOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}<a href="#" onclick="return Dialog.PM({$ID})">{$Name}</a>{foreachelse}{$LNG.ov_no_admins_online}{/foreach}</td>
+		<td style="white-space: nowrap;">{$LNG.ov_online_user}</td>
+		<td colspan="2"> <span style="font-weight: bold; color: lime;">{$onlineUser|number}</span></td>
 	</tr>
 	{if !empty($chatOnline)}
 	<tr>

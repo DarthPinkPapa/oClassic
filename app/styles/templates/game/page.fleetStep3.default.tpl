@@ -26,7 +26,7 @@
     </tr>
     <tr style="height:20px">
         <td>{$LNG.fl_destiny}</td>
-        <td>{$destination}</td>
+        <td><a href="game.php?page=galaxy&amp;galaxy={$desetinationGalaxy}&amp;system={$desetinationSystem}"> {$destination}</a></td>
     </tr>
     <tr style="height:20px">
         <td>{$LNG.fl_arrival_time}</td>
@@ -45,5 +45,15 @@
 		<td>{$ShipCount|number}</td>
 	</tr>
 	{/foreach}
+</table>
+
+<table class="table519">
+    <tr style="height:20px">
+		<th colspan="2" class="success">GoTo</span></th>
+	</tr>
+    <tr style="height:20px">             
+        <td><a href="game.php?page=fleetTable">{{$LNG.lm_fleet}}</a></td>
+        <td><a href="game.php?page=galaxy&amp;galaxy={$desetinationGalaxy}&amp;system={$desetinationSystem}">{{$LNG.lm_galaxy}}</a></td>
+    </tr>
 </table>
 {/block}

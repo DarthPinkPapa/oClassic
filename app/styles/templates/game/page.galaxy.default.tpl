@@ -8,11 +8,11 @@
 				<table>
 					<tr>
 						<th colspan="3">{$LNG.gl_galaxy}</th>
-					</tr>
+					</tr>					
 					<tr>
-						<td><input type="button" name="galaxyLeft" value="&lt;-" onclick="galaxy_submit('galaxyLeft')"></td>
+						<td><a href="game.php?page=galaxy&amp;galaxy={$galaxy-1}&amp;system={$system}"><--</a></td>
 						<td><input type="text" name="galaxy" value="{$galaxy}" size="5" maxlength="3" tabindex="1"></td>
-						<td><input type="button" name="galaxyRight" value="-&gt;" onclick="galaxy_submit('galaxyRight')"></td>
+						<td><a href="game.php?page=galaxy&amp;galaxy={$galaxy+1}&amp;system={$system}">--></a></td>
 					</tr>
 				</table>
 			</td>
@@ -22,9 +22,9 @@
 						<th colspan="3">{$LNG.gl_solar_system}</th>
 					</tr>
 					<tr>
-						<td><input type="button" name="systemLeft" value="&lt;-" onclick="galaxy_submit('systemLeft')"></td>
+						<td><a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system-1}"><--</a></td>
 						<td><input type="text" name="system" value="{$system}" size="5" maxlength="3" tabindex="2"></td>
-						<td><input type="button" name="systemRight" value="-&gt;" onclick="galaxy_submit('systemRight')"></td>
+						<td><a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system+1}">--></a></td>
 					</tr>
 				</table>
 			</td>
@@ -141,18 +141,18 @@
 			{if $currentPlanet.action}
 				{if $currentPlanet.action.esp}
 				<a href="javascript:doit(6,{$currentPlanet.planet.id},{$spyShips|json|escape:'html'})">
-					<img src="{$dpath}img/e.gif" title="{$LNG.gl_spy}" alt="">
+					<img src="{$dpath}img/e.png" title="{$LNG.gl_spy}" alt="">
 				</a>{/if}
 				{if $currentPlanet.action.message}
 				<a href="#" onclick="return Dialog.PM({$currentPlanet.user.id})">
-					<img src="{$dpath}img/m.gif" title="{$LNG.write_message}" alt="">
+					<img src="{$dpath}img/m.png" title="{$LNG.write_message}" alt="">
 				</a>{/if}
 				{if $currentPlanet.action.buddy}
                 <a href="#" onclick="return Dialog.Buddy({$currentPlanet.user.id})">
-					<img src="{$dpath}img/b.gif" title="{$LNG.gl_buddy_request}" alt="">
+					<img src="{$dpath}img/b.png" title="{$LNG.gl_buddy_request}" alt="">
 				</a>{/if}
 				{if $currentPlanet.action.missle}<a href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=1">
-					<img src="{$dpath}img/r.gif" title="{$LNG.gl_missile_attack}" alt="">
+					<img src="{$dpath}img/r.png" title="{$LNG.gl_missile_attack}" alt="">
 				</a>{/if}
 			{else}-{/if}
 			{if $currentPlanet.planet.phalanx}<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;"><span>{$LNG.gl_phalanx}</span></a>{/if}
@@ -186,9 +186,28 @@
 		<th colspan="8">{$LNG.cff_fleet_target}</th>
 	</tr>
 	</table>
-	<script type="text/javascript">
-		status_ok		= '{$LNG.gl_ajax_status_ok}';
-		status_fail		= '{$LNG.gl_ajax_status_fail}';
-		MaxFleetSetting = {$settings_fleetactions};
-	</script>
+   	
+    <table class="table569">
+	<tr>
+		<th colspan="3">{$LNG.ov_events}</th>
+	</tr>
+	{foreach $fleets as $index => $fleet}
+	<tr>
+		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</td>
+		<td colspan="2">{$fleet.text}</td>
+	</tr>
+	{/foreach}
+
+
+<p>
+</table>
+
+<script type="text/javascript">
+	status_ok		= '{$LNG.gl_ajax_status_ok}';
+	status_fail		= '{$LNG.gl_ajax_status_fail}';
+	MaxFleetSetting = {$settings_fleetactions};
+</script>
+{/block}
+{block name="script" append}
+    <script src="scripts/game/overview.js"></script>
 {/block}

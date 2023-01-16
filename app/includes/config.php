@@ -17,11 +17,11 @@
 //### Database access ###//
 
 $database					= array();
-$database['host']			= 'mysql';
+$database['host']			= 'localhost';
 $database['port']			= '3306';
 $database['user']			= 'root';
-$database['userpw']			= 'secret';
-$database['databasename']	= '2moons';
+$database['userpw']			= '';
+$database['databasename']	= 'moon';
 $database['tableprefix']	= 'uni1_';
 $salt						= 'pIzwElSxPjOR7yJH1vYCik'; // 22 digits from the alphabet "./0-9A-Za-z"
 

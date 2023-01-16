@@ -101,7 +101,7 @@ $LNG['lm_disclamer']						= 'Impressum';
 	
 //----------------------------------------------------------------------------//
 //OVERVIEW
-
+$LNG['ov_online_user']			            = "Verbundener Spieler";
 $LNG['ov_newname_specialchar']				= 'Im Planetennamen sind nur Zahlen, Buchstaben, Leerzeichen, _, -, . erlaubt!';
 $LNG['ov_newname_done']						= 'Planet erfolgreich umbenannt!';
 $LNG['ov_planet_abandoned']					= 'Planet erfolgreich aufgegeben!';

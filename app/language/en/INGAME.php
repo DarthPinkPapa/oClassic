@@ -106,7 +106,7 @@ $LNG['lm_disclamer']						= 'Credits';
 	
 //----------------------------------------------------------------------------//
 // Vista Geral
-
+$LNG['ov_online_user']			            = "Players online";
 $LNG['ov_newname_specialchar']				= 'The names of the planet is allowed only numbers, letters, spaces, _,-,.';
 $LNG['ov_newname_done']						= 'The new name was entered!';
 $LNG['ov_planet_abandoned']					= 'The planet was destroyed!';

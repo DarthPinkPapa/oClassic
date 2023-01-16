@@ -25,6 +25,15 @@ class ShowGalaxyPage extends AbstractGamePage
 	{
 		parent::__construct();
 	}
+
+	private function GetFleets() {
+		global $USER, $PLANET;
+		require 'includes/classes/class.FlyingFleetsTable.php';
+		$fleetTableObj = new FlyingFleetsTable;
+		$fleetTableObj->setUser($USER['id']);
+		$fleetTableObj->setPlanet($PLANET['id']);
+		return $fleetTableObj->renderTable();
+	}
 	
 	public function show()
 	{
@@ -124,6 +133,7 @@ class ShowGalaxyPage extends AbstractGamePage
 				'friend'					=> $LNG['gl_short_friend'],
 				'member'					=> $LNG['gl_short_member'],
 			),
+			'fleets'					=> $this->GetFleets(),
 		));
 		
 		$this->display('page.galaxy.default.tpl');

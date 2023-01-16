@@ -56,7 +56,7 @@ class ShowOfficierPage extends AbstractGamePage
 			$USER[$resource[921]]		+= $costResources[921];
 
 			//Daily Reward
-			$USER[$resource[921]]		+= mt_rand(100, 500);
+			$USER[$resource[921]]		+= mt_rand(250, 500);
 		}
 
 

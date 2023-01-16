@@ -1,5 +1,5 @@
 ### oClassic v1.8.1 01/23
-- DPP#1 Refactor Repo, Docker-Compose - Refactor the GIT repo to optimize for the use of Docker compose for local development and final deployment.Reward
+- DPP#1 Refactor Repo, Docker-Compose - Refactor the GIT repo to optimize for the use of Docker compose for local development and final deployment.
 - DPP#2 Daily Reward - Daily reward on the Officers page to be able to receive up to 500 DM every 24 hours.
 - DPP#3 Research in Overview - The overview shows what is currently being researched.
 - DPP#4 Change Style to more Classic look (Buildings) - oClassic should look more like the classic oGame before the redesign.
@@ -9,7 +9,13 @@
 - DPP#9 Change Style to more Classic look (Research) - oClassic should look more like the classic oGame before the redesign.
 - DPP#10 Change Style to more Classic look (Shipyard) - oClassic should look more like the classic oGame before the redesign.
 - DPP#11 Change Style to more Classic look (Officer) - oClassic should look more like the classic oGame before the redesign.
+- DPP#12 Show Count Player online - Like in 2Moons 2.0 in the overview the number of online users should be displayed.
 - DPP#13 Remove Ships that are not in oGame - oClassic should only have ships, that are in the original oGame.
+- DPP#14 Change Galaxy View Icons - Galaxy View Icons must be bigger.
+- DPP#15 Color in Empire View - The Empire View should have colors showing planets with to low values and it should display average values
+- DPP#16 Fleet Sent (Page3) Link to Galaxy View and Fleet View - The User should have the choice if he wants to jump back to the galaxy view or to the fleet view after sending an attack.
+- DPP#17 GalaxyView Improvements - Browser Refresh (F5) should be possible, and flying fleets should be visible.
+- DPP#18 All Players deleted by CronJob - Bugfix in CronJobs
 
 ### v1.8.0	Jan
 - See: [https://github.com/jkroepke/2Moons/pulls](https://github.com/jkroepke/2Moons/pulls?utf8=%E2%9C%93&q=is%3Aclosed)
@@ -652,7 +658,7 @@
 - ADD: Facebook Connector Alpha
 - ADD: Diplomatie-System
 - ADD: Gigarecyler on Galaxy
-- ADD: Ori. Platform, Spalteinreißer, Bahamut
+- ADD: Ori. Platform, SDPPteinreißer, Bahamut
 - ADD: Händlergebühren
 - ADD: Universität
 - ADD: Konstanten für Mondentstehung

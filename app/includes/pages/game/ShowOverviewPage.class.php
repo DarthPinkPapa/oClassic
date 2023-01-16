@@ -271,6 +271,16 @@ class ShowOverviewPage extends AbstractGamePage
 		$senderUser['factor']	= getFactors($senderUser, 'basic');
 		$planetsMax = PlayerUtil::maxPlanetCount($senderUser);
 		
+		/**
+		 * Addon user online
+		 * Ajout pour le nombre de joueur connecter
+		**/
+		$onlineUserResult = $db->select("SELECT * FROM %%USERS%% WHERE onlinetime > :timeUser AND authlevel < :auth ;", array(
+			':timeUser' => TIMESTAMP - 15*60,
+			':auth' => AUTH_ADM,
+		));
+		$onlineUser = $db->rowCount($onlineUserResult);
+		
 		$this->assign(array(
 			'rankInfo'					=> $rankInfo,
 			'is_news'					=> $config->OverviewNewsFrame,
@@ -283,6 +293,7 @@ class ShowOverviewPage extends AbstractGamePage
 			'planet_type'				=> $PLANET['planet_type'],
 			'username'					=> $USER['username'],
 			'userid'					=> $USER['id'],
+			'onlineUser'				=> $onlineUser,
 			'buildInfo'					=> $buildInfo,
 			'Moon'						=> $Moon,
 			'fleets'					=> $this->GetFleets(),
