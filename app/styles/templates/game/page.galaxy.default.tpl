@@ -172,7 +172,7 @@
 	</tr>
 	<tr>
 		<td colspan="3"><span id="missiles">{$currentmip|number}</span> {$LNG.gl_avaible_missiles}</td>
-		<td colspan="5"><span id="slots">{$maxfleetcount}</span>/{$fleetmax} {$LNG.gl_fleets}</td>
+		<td colspan="5"><a href='javascript:doit(-1,-1);'><span id="slots">{$maxfleetcount}</span>/{$fleetmax} {$LNG.gl_fleets}</a></td>
 	</tr>
 	<tr>
 		<td colspan="3">
@@ -197,8 +197,6 @@
 		<td colspan="2">{$fleet.text}</td>
 	</tr>
 	{/foreach}
-
-
 <p>
 </table>
 
@@ -207,6 +205,33 @@
 	status_fail		= '{$LNG.gl_ajax_status_fail}';
 	MaxFleetSetting = {$settings_fleetactions};
 </script>
+
+
+<script>
+    // Add event listener on keydown
+    document.addEventListener('keydown', (event) => {      
+      if (event.key === 'ArrowRight') {
+        // Right        
+        window.location.href = 'game.php?page=galaxy&galaxy={$galaxy}&system={$system+1}';
+        return;
+      }
+      else if (event.key === 'ArrowLeft') 
+      {
+        //Left
+        window.location.href = 'game.php?page=galaxy&galaxy={$galaxy}&system={$system-1}';
+        return;
+      }    
+       else if (event.key === 'ArrowUp') 
+      {
+        //Up
+        window.location.href = 'javascript:doit(-1,-1);';
+		window.location.href = 'javascript:doit(-1,-1);';
+        return;
+      }     
+    }, false);   
+  </script>
+
+
 {/block}
 {block name="script" append}
     <script src="scripts/game/overview.js"></script>

@@ -37,12 +37,12 @@ class ShowOfficierPage extends AbstractGamePage
 
 		//Daily Reward: Cancel, if time is not done. 
 		//704 = dm_ressource
-		if ($USER[$resource[$Element]] >TIMESTAMP && $Element = 701)
+		if ($USER[$resource[$Element]] >TIMESTAMP && $Element == 701)
 			return;
 	
 		//Update Time
 		$USER[$resource[$Element]]	= max($USER[$resource[$Element]], TIMESTAMP) + $pricelist[$Element]['time'];
-			
+				
 		//Update Ressources
 		if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
 		if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
@@ -50,13 +50,17 @@ class ShowOfficierPage extends AbstractGamePage
 		if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
 
 		//Daily Reward: Give away DM
-		if ($Element = 701)
+		if ($Element == 701)
 		{
 			//Payback spent DM
 			$USER[$resource[921]]		+= $costResources[921];
 
 			//Daily Reward
 			$USER[$resource[921]]		+= mt_rand(250, 500);
+			
+			//Daily Reward per calendar day
+			$timeToMidnight = strtotime('tomorrow') - time() + 60;
+			$USER[$resource[$Element]] = $timeToMidnight + TIMESTAMP;
 		}
 
 
@@ -140,6 +144,13 @@ class ShowOfficierPage extends AbstractGamePage
 					'costOverflow'		=> $costOverflow,
 					'elementBonus'		=> $elementBonus,
 				);
+				
+				//Daily Reward per calendar day
+				if ($Element == 701)
+				{
+				    $timeToMidnight = strtotime('tomorrow') - time() + 60;
+				    $darkmatterList[$Element]['time'] = $timeToMidnight;
+				}
 			}
 		}
 		

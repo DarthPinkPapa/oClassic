@@ -57,7 +57,14 @@
 				{if	$build +2 < floor(array_sum($buildArray)/count($buildArray))  }<span style="color:red">{$build|number}</span>
 				{elseif $build  < floor(array_sum($buildArray)/count($buildArray))  } <span style="color:yellow">{$build|number}</span>		
 				{else} <span style="color:green">{$build|number}</span>		
-				{/if}	
+				{/if}
+
+				{foreach $queueList['buildings'][$planetID] as $inProgress}					
+					{if ($inProgress[0] == $elementID)}						
+					+1
+					{/if}
+				{/foreach}
+
 				</td>
 			{/foreach}
 		</tr>
@@ -68,10 +75,18 @@
 		{foreach $planetList.tech as $elementID => $tech}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{$tech|number}</td>
-			{foreach $planetList.name as $name}
-				<td>{$tech|number}</td>
+			<td colspan="{count($buildArray)+1}">
+			{if ($tech == 0)}<span style="color:red">
+			{else}<span style="color:green">
+			{/if}
+			{$tech|number}
+			</span>	
+			{foreach $queueList['tech'][$planetID] as $inProgress}					
+				{if ($inProgress[0] == $elementID)}						
+				+1
+				{/if}
 			{/foreach}
+			</td>			
 		</tr>
 		{/foreach}
 		<tr>
@@ -86,7 +101,14 @@
 					{if	$fleet +2 < floor(array_sum($fleetArray)/count($fleetArray))  }<span style="color:red">{$fleet|number}</span>
 					{elseif $fleet  < floor(array_sum($fleetArray)/count($fleetArray))  } <span style="color:yellow">{$fleet|number}</span>		
 					{else} <span style="color:green">{$fleet|number}</span>		
-					{/if}									
+					{/if}	
+					
+					{foreach $queueList['fleet'][$planetID] as $inProgress}					
+						{if ($inProgress[0] == $elementID)}						
+						+{$inProgress[1]}
+						{/if}
+					{/foreach}
+
 				</td>
 			{/foreach}
 		</tr>
@@ -105,6 +127,13 @@
 					{elseif $fleet  < floor(array_sum($fleetArray)/count($fleetArray))  } <span style="color:yellow">{$fleet|number}</span>		
 					{else} <span style="color:green">{$fleet|number}</span>		
 					{/if}	
+					
+					{foreach $queueList['fleet'][$planetID] as $inProgress}					
+						{if ($inProgress[0] == $elementID)}						
+						+{$inProgress[1]}
+						{/if}
+					{/foreach}
+					
 				</td>
 			{/foreach}
 		</tr>

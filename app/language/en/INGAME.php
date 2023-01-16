@@ -252,6 +252,7 @@ $LNG['lv_total']							= 'Total';
 
 //----------------------------------------------------------------------------//
 // Fleet
+$LNG['fl_update_slots']					    = 'Slots updated';
 $LNG['fl_returning']						= 'Fleet return';
 $LNG['fl_onway']							= 'Fleet Target';
 $LNG['fl_r']								= '(R)';

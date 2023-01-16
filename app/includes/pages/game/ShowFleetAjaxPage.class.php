@@ -58,7 +58,7 @@ class ShowFleetAjaxPage extends AbstractGamePage
 		}
 
 		if ($maxSlots <= $activeSlots) {
-			$this->sendData(612, $LNG['fa_no_more_slots']);
+		    $this->sendData(612, $LNG['fa_no_more_slots']);
 		}
 
 		$fleetArray = array();
@@ -67,6 +67,9 @@ class ShowFleetAjaxPage extends AbstractGamePage
 
 		switch($targetMission)
 		{
+		    //PAL#21 Free slots are not updated
+		    case -1:
+		        $this->sendData(600,  $LNG['fl_update_slots']); 
 			case 6:
 				if(!isModuleAvailable(MODULE_MISSION_SPY)) {
 					$this->sendData(699, $LNG['sys_module_inactive']);

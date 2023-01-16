@@ -66,6 +66,7 @@ class ShowImperiumPage extends AbstractGamePage
 		}
 
         $planetList	= array();
+        $queueList = array();
 
 		foreach($PlanetsRAW as $Planet)
 		{
@@ -88,7 +89,7 @@ class ShowImperiumPage extends AbstractGamePage
 			$planetList['resource'][911][$Planet['id']]			= $Planet['energy'];
 			
 			foreach($reslist['build'] as $elementID) {
-				$planetList['build'][$elementID][$Planet['id']]	= $Planet[$resource[$elementID]];
+			    $planetList['build'][$elementID][$Planet['id']]	= $Planet[$resource[$elementID]];
 			}
 			
 			foreach($reslist['fleet'] as $elementID) {
@@ -98,7 +99,13 @@ class ShowImperiumPage extends AbstractGamePage
 			foreach($reslist['defense'] as $elementID) {
 				$planetList['defense'][$elementID][$Planet['id']]	= $Planet[$resource[$elementID]];
 			}
+						
+			//#PAL27 Load Queue
+			$queueList['buildings'][$Planet['id']] = unserialize($Planet['b_building_id']);
+			$queueList['fleet'][$Planet['id']] = unserialize($Planet['b_hangar_id']);
+			$queueList['tech'][$Planet['id']] = unserialize($USER['b_tech_queue']);												
 		}
+		
 
 		foreach($reslist['tech'] as $elementID){
 			$planetList['tech'][$elementID]	= $USER[$resource[$elementID]];
@@ -107,6 +114,7 @@ class ShowImperiumPage extends AbstractGamePage
 		$this->assign(array(
 			'colspan'		=> count($PLANETS) + 2,
 			'planetList'	=> $planetList,
+		    'queueList'    => $queueList
 		));
 
 		$this->display('page.empire.default.tpl');

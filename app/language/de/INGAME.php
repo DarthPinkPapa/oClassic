@@ -247,6 +247,7 @@ $LNG['lv_total']							= 'Total';
 
 //----------------------------------------------------------------------------//
 //FLEET - FLEET1 - FLEET2 - FLEET3 - FLEETACS - FLEETSHORTCUTS
+$LNG['fl_update_slots']					    = 'Freie Flottenslots verfügbar';
 $LNG['fl_returning']						= 'Flotte auf Planet';
 $LNG['fl_onway']							= 'Flotte zu Planet';
 $LNG['fl_r']								= '(R)';

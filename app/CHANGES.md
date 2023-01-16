@@ -12,10 +12,16 @@
 - DPP#12 Show Count Player online - Like in 2Moons 2.0 in the overview the number of online users should be displayed.
 - DPP#13 Remove Ships that are not in oGame - oClassic should only have ships, that are in the original oGame.
 - DPP#14 Change Galaxy View Icons - Galaxy View Icons must be bigger.
-- DPP#15 Color in Empire View - The Empire View should have colors showing planets with to low values and it should display average values
+- DPP#15 Color in Empire View - The Empire View should have colors showing planets with to low values and it should display average values.
 - DPP#16 Fleet Sent (Page3) Link to Galaxy View and Fleet View - The User should have the choice if he wants to jump back to the galaxy view or to the fleet view after sending an attack.
 - DPP#17 GalaxyView Improvements - Browser Refresh (F5) should be possible, and flying fleets should be visible.
-- DPP#18 All Players deleted by CronJob - Bugfix in CronJobs
+- DPP#18 All Players deleted by CronJob - Bugfix in CronJobs.
+- DPP#19 Daily Reward per calendar day - The daily reward should not run 24 hours, but always until 00:00.
+- DPP#20 Navigation in Galaxy View by Keyboard - Left: prev System, Right: next System, Down: Update free Slots
+- DPP#21 Galaxy View: Free slots are not updated - If you spy in the Galaxy View and all slots are used up, you can't spy anymore, even if you waited long enough. You even have to reload the page 2x so that you can spy again.
+- DPP#24/25 Buildungs and Sience are to expensive - Buildings and Sience are always 1 level to expensive. Buy level 1 and pay for level 2.
+- DPP#26 Light Cargo is to slow with Impulse Engine - Switch of engine at tech level 5 not working correctly. Still uses base speed 5000 and not 10000.
+- DPP#27 Show 'In Progress' in Empire View - The Empire View shold show if with a '+1' if a Building or Research is in Progress.
 
 ### v1.8.0	Jan
 - See: [https://github.com/jkroepke/2Moons/pulls](https://github.com/jkroepke/2Moons/pulls?utf8=%E2%9C%93&q=is%3Aclosed)
@@ -658,7 +664,7 @@
 - ADD: Facebook Connector Alpha
 - ADD: Diplomatie-System
 - ADD: Gigarecyler on Galaxy
-- ADD: Ori. Platform, SDPPteinreißer, Bahamut
+- ADD: Ori. Platform, Spalteinreißer, Bahamut
 - ADD: Händlergebühren
 - ADD: Universität
 - ADD: Konstanten für Mondentstehung
