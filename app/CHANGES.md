@@ -9,7 +9,7 @@
 - DPP#9 Change Style to more Classic look (Research) - oClassic should look more like the classic oGame before the redesign.
 - DPP#10 Change Style to more Classic look (Shipyard) - oClassic should look more like the classic oGame before the redesign.
 - DPP#11 Change Style to more Classic look (Officer) - oClassic should look more like the classic oGame before the redesign.
-- DPP#12 Show Count Player online - Like in 2Moons 2.0 in the overview the number of online users should be displayed.
+- DPP#12/DPP#28 Show Count Player online - Like in 2Moons 2.0 in the overview the number of online users should be displayed.
 - DPP#13 Remove Ships that are not in oGame - oClassic should only have ships, that are in the original oGame.
 - DPP#14 Change Galaxy View Icons - Galaxy View Icons must be bigger.
 - DPP#15 Color in Empire View - The Empire View should have colors showing planets with to low values and it should display average values.
@@ -22,6 +22,7 @@
 - DPP#24/25 Buildungs and Sience are to expensive - Buildings and Sience are always 1 level to expensive. Buy level 1 and pay for level 2.
 - DPP#26 Light Cargo is to slow with Impulse Engine - Switch of engine at tech level 5 not working correctly. Still uses base speed 5000 and not 10000.
 - DPP#27 Show 'In Progress' in Empire View - The Empire View shold show if with a '+1' if a Building or Research is in Progress.
+- DPP#29 Update Buildings in Empire View - The Empire View sometimes needs second reload to handle finished buildings.
 
 ### v1.8.0	Jan
 - See: [https://github.com/jkroepke/2Moons/pulls](https://github.com/jkroepke/2Moons/pulls?utf8=%E2%9C%93&q=is%3Aclosed)

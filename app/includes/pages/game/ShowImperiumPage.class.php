@@ -53,10 +53,9 @@ class ShowImperiumPage extends AbstractGamePage
             ':order'    => $orderBy,
         ));
 
-        $PLANETS	= array($PLANET);
-		
-		$PlanetRess	= new ResourceUpdate();
-		
+        //Update Ressources and Buildings
+        $PLANETS	= array($PLANET);		
+		$PlanetRess	= new ResourceUpdate();		
 		foreach ($PlanetsRAW as $CPLANET)
 		{
             list($USER, $CPLANET)	= $PlanetRess->CalcResource($USER, $CPLANET, true);
@@ -64,6 +63,13 @@ class ShowImperiumPage extends AbstractGamePage
 			$PLANETS[]	= $CPLANET;
 			unset($CPLANET);
 		}
+			
+		//Reload Planets form DB
+		$PlanetsRAW = $db->select($sql, array(
+		    //':planetID' => $PLANET['id'],
+		    ':userID'   => $USER['id'],
+		    ':order'    => $orderBy,
+		));
 
         $planetList	= array();
         $queueList = array();
