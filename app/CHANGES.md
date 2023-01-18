@@ -14,7 +14,7 @@
 - DPP#14 Change Galaxy View Icons - Galaxy View Icons must be bigger.
 - DPP#15 Color in Empire View - The Empire View should have colors showing planets with to low values and it should display average values.
 - DPP#16 Fleet Sent (Page3) Link to Galaxy View and Fleet View - The User should have the choice if he wants to jump back to the galaxy view or to the fleet view after sending an attack.
-- DPP#17 GalaxyView Improvements - Browser Refresh (F5) should be possible, and flying fleets should be visible.
+- DPP#17 Galaxy View Improvements - Browser Refresh (F5) should be possible, and flying fleets should be visible.
 - DPP#18 All Players deleted by CronJob - Bugfix in CronJobs.
 - DPP#19 Daily Reward per calendar day - The daily reward should not run 24 hours, but always until 00:00.
 - DPP#20 Navigation in Galaxy View by Keyboard - Left: prev System, Right: next System, Down: Update free Slots
